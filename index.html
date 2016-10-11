@@ -34,13 +34,29 @@
             </table>
         </div>      
     </section>
-    <section class="lateral-content">
+    
+  <section class="lateral-content">
     	<h1>Cart</h1>
+	  <table id="cart-table">
+       	  <tr>
+              <td><h3>Drag items here:</h3></td>
+              <td>&nbsp;</td>
+          </tr>
+       	  <tr id="products-row">
+          	<td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr id="total-row"> 
+              <td class="product-cell"><strong>Total:</strong></td>      
+              <td class="value-cell"><strong>$0.00</strong></td>
+          </tr>
+      </table>
     </section>
+    
     <section class="main-content">
     	<header>
         	<h1>Main Search</h1>
-            <table class="search-results">
+            <table id="search-results">
             </table>
         </header>
       
@@ -52,6 +68,8 @@
     </section>
 	<section class="lateral-content">
     	<h1>suggestions</h1>
+        <table id="suggestions-table">
+        </table>
     </section>
   </body>
 </html>
