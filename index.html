@@ -11,15 +11,26 @@
   </head>
   <body>
     <section class="page-header">
-      <form method="get" action="https://www.google.com/search">
-      	<input type="text" name="search_engine" value="" id="search_field"/>
-        <input type="submit" name="send" value="Search" class="form_button"/>
-        <span id="login_box">
-        <input type="button" action="" value="Register" class="form_button">                
-        <input type="button" action="" value="Login" class="form_button">
-        </span>
-      </form>        
-      
+    	<div class="center_table">
+            <table>
+                <tr>
+                    <td>
+                        <form method="get" action="https://www.google.com/search">
+                            <input type="text" name="search_engine" value="" id="search_field"/>
+                            <input type="submit" name="send" value="Search" class="form_button"/>        	
+                        </form>
+                    </td>
+                    <td class="white_cell">
+                        &nbsp;
+                    </td>
+                    <td class="login_cell"> 
+                        <input type="button" action="" value="Register" class="form_button">                
+                        <input type="button" action="" value="Login" class="form_button">
+                        <img src="resources/user_pic.png" width="100rem" height="100rem">
+                    </td>
+                </tr>
+            </table>
+        </div>      
     </section>
 
     <section class="main-content">
