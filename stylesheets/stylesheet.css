@@ -314,64 +314,34 @@ h1{
 @media screen and (max-width: 42em) {
   .site-footer {
     font-size: 0.9rem; } }
-
 .filter-button{
-    height: 3rem;
-    width: `100%;
-    position: relative;
-    left:-20rem;
-    top:5rem;
+    height: 2rem;
+    width: 10rem;
+    
 }
-
-.filter-button ul {
+ul.filter-button{
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
-    width: 100%;
-    padding-left: 35rem;
-    
+    background-color: #333333;
+    position: absolute;
+    bottom: 28rem;
+    left: 2rem;
+    width: 80rem;
 }
-
 .filter-button li {
-    float: left;
+    float: left
 }
 
-.filter-button li a, .dropbtn {
-    display: inline-block;
+.filter-butto li a {
+    display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 20px;
     text-decoration: none;
 }
 
-.filter-button li a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
-}
-
-.filter-button li.dropdown {
-    display: inline-block;
-}
-
-.filter-button .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.filter-button .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.filter-button .dropdown-content a:hover {background-color: #f1f1f1}
-
-.filter-button .dropdown:hover .dropdown-content {
-    display: block;
+.filter-butto a:hover {
+    background-color: #111111;
 }
