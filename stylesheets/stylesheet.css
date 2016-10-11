@@ -158,15 +158,15 @@ a {
 @media screen and (max-width: 42em) {
   .project-tagline {
     font-size: 1rem; } }
-.lateral-content {
-	width:17.5%;
-	float: left;
-}
-
-.lateral-content h1{
+h1{
 	text-align:center;
 	font-weight: normal;
   	color: #159957;
+}
+
+.lateral-content {
+	width:17.5%;
+	float: left;
 }
 
 .main-content {
