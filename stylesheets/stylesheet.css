@@ -317,9 +317,10 @@ a {
 
 .filter-button{
     height: 3rem;
-    width: 80rem;
+    width: `100%;
     position: relative;
-    left:0rem;
+    left:-20rem;
+    top:5rem;
 }
 
 .filter-button ul {
@@ -328,8 +329,8 @@ a {
     padding: 0;
     overflow: hidden;
     background-color: #333;
-    width: 80rem;
-    padding-left: 0rem;
+    width: 100%;
+    padding-left: 35rem;
     
 }
 
