@@ -11,6 +11,8 @@
     <script src="scripts/login.js"></script>
     <script src="scripts/dragndrop.js"></script>
 	<script src="scripts/checkout.js"></script>
+    <script src="scripts/propigation.js"></script>
+              
   </head>
   <body>
     <section class="page-header">
@@ -18,9 +20,10 @@
             <table id="header-table">
                 <tr>
                     <td>
-                        <form method="get" action="https://www.google.com/search">
+<!--                        method="get" action="https://www.google.com/search"-->
+                        <form>
                             <input type="text" name="search_engine" value="" id="search_field"/>
-                            <input type="submit" name="send" value="Search" class="form_button"/>        	
+                            <input type="submit" name="send" value="Search" class="form_button" onclick="fill_products();"/>        	
                         </form>
                     </td>
                     <td class="white_cell">&nbsp;</td>
@@ -64,7 +67,7 @@
         	<h1>Main Search</h1>
         </header>
       	
-        <body>
+        <body onload="startingfunction()">
         	<div id="checkout_popup" class="popup">
             	<div id="popup-content">
             		<span class="close" onClick="closeCheckout()">x</span>
@@ -124,12 +127,37 @@
             	<tr id="1" draggable="true" ondragstart="drag(event)">
                 	<td>
                     	<h4 id="title1">Alienware MX14</h4>
-                        <img src="resources/user_pic.png" width="100rem" height="100rem">
+                        <img id='picture1' width="100rem" height="100rem" src="resources/user_pic.png" type>
+                        
                     </td>
                     <td class="price-field">
                     	<strong>$<span id="amount1">2000.00</span></strong>
                         <h4>Description</h4>              	
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a venenatis nibh, in ullamcorper turpis. Pellentesque congue est sit amet nibh bibendum bibendum. Donec non porta tortor. Curabitur interdum libero at efficitur maximus. Nulla ex augue, suscipit ac turpis sit amet, posuere tincidunt velit. Proin porta turpis justo, eu semper ipsum varius non. Fusce tempor at eros sed ullamcorper. Aenean id diam consequat, efficitur tellus id, pulvinar risus. Nam mollis sem et placerat pellentesque. Nulla non ipsum tellus. Sed vestibulum ex nec venenatis aliquam.</p>  
+                        <p id="description1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a venenatis nibh, in ullamcorper turpis. Pellentesque congue est sit amet nibh bibendum bibendum. Donec non porta tortor. Curabitur interdum libero at efficitur maximus. Nulla ex augue, suscipit ac turpis sit amet, posuere tincidunt velit. Proin porta turpis justo, eu semper ipsum varius non. Fusce tempor at eros sed ullamcorper. Aenean id diam consequat, efficitur tellus id, pulvinar risus. Nam mollis sem et placerat pellentesque. Nulla non ipsum tellus. Sed vestibulum ex nec venenatis aliquam.</p>  
+                    </td>
+                </tr>
+                <tr id="2" draggable="true" ondragstart="drag(event)">
+                	<td>
+                    	<h4 id="title2">Alienware MX14</h4>
+                        <img id='picture2' width="100rem" height="100rem" src="resources/user_pic.png" type>
+                        
+                    </td>
+                    <td class="price-field">
+                    	<strong>$<span id="amount2">2000.00</span></strong>
+                        <h4>Description</h4>              	
+                        <p id="description2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a venenatis nibh, in ullamcorper turpis. Pellentesque congue est sit amet nibh bibendum bibendum. Donec non porta tortor. Curabitur interdum libero at efficitur maximus. Nulla ex augue, suscipit ac turpis sit amet, posuere tincidunt velit. Proin porta turpis justo, eu semper ipsum varius non. Fusce tempor at eros sed ullamcorper. Aenean id diam consequat, efficitur tellus id, pulvinar risus. Nam mollis sem et placerat pellentesque. Nulla non ipsum tellus. Sed vestibulum ex nec venenatis aliquam.</p>  
+                    </td>
+                </tr>
+                <tr id="3" draggable="true" ondragstart="drag(event)">
+                	<td>
+                    	<h4 id="title3">Alienware MX14</h4>
+                        <img id='picture3' width="100rem" height="100rem" src="resources/user_pic.png" type>
+                        
+                    </td>
+                    <td class="price-field">
+                    	<strong>$<span id="amount3">2000.00</span></strong>
+                        <h4>Description</h4>              	
+                        <p id="description3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a venenatis nibh, in ullamcorper turpis. Pellentesque congue est sit amet nibh bibendum bibendum. Donec non porta tortor. Curabitur interdum libero at efficitur maximus. Nulla ex augue, suscipit ac turpis sit amet, posuere tincidunt velit. Proin porta turpis justo, eu semper ipsum varius non. Fusce tempor at eros sed ullamcorper. Aenean id diam consequat, efficitur tellus id, pulvinar risus. Nam mollis sem et placerat pellentesque. Nulla non ipsum tellus. Sed vestibulum ex nec venenatis aliquam.</p>  
                     </td>
                 </tr>
             </table>
