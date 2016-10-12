@@ -8,7 +8,9 @@ global_products =
      "https://www.walmart.com/ip/Refurbished-Apple-MacBook-Air-11-6-LED-Intel-i5-3317-1-7GHz-4GB-64GB-SSD-Notebook-MD223LL/165231312",
      "http://www.newegg.com/Product/Product.aspx?Item=1TS-001A-002P7",
      "http://www.newegg.com/Product/Product.aspx?Item=N82E16834319906"]
+
 global_metadata_from_array = [];
+var metadata_index = 0;
 
 function makeUL(array) {
     // Create the list element:
@@ -39,42 +41,76 @@ function getMetadata(url)
 
 function metadataCallback(rawMetadata)
 {
-    global_metadata_from_array.push(new Object(rawMetadata));
+    //global_metadata_from_array.push(new Object(rawMetadata));
+    localStorage.setItem(metadata_index.toString(),new String(JSON.stringify(rawMetadata)));
+    metadata_index++;
 //    global_storage = new Object(rawMetadata);
 //    console.log(rawMetadata);
 }
 
+
 function get_metadata_from_array(){
-    for (i = 0; i < global_products.length; i++) { 
-        getMetadata(global_products[i]);
-    }
+        for (i = 0; i < global_products.length; i++) { 
+            getMetadata(global_products[i]);
+        }
+    //localStorage.setItem("globalobjects", new Object(global_metadata_from_array));
+   // get_local_storage();
 }
 
 function fill_products(){
     var locationvalue = 1;
-    var replacevalues = "";
+    var replacevalues = " ";
+    var local_metadata_from_array = [];
+    for(i = 0;i<7;i++)
+        local_metadata_from_array.push(JSON.parse(localStorage.getItem(i.toString()))); 
 //    .hasOwnProperty('merchant_id')
-    if(global_metadata_from_array.length ==7)
-    {
-        for (i = 0; i < global_metadata_from_array.length; i++) { 
-            if(global_metadata_from_array[i].hasOwnProperty('amazon_product'))
+        for (i = 0; i < local_metadata_from_array.length; i++) { 
+            if(local_metadata_from_array[i].hasOwnProperty('amazon_product'))
             {
                 replacevalues = 'picture'+locationvalue.toString();
-                document.getElementById(replacevalues).src= global_metadata_from_array[i]['amazon_product']['main_images'][0]['location'];
+                document.getElementById(replacevalues).src= local_metadata_from_array[i]['amazon_product']['main_images'][0]['location'];
+                replacevalues = 'title'+locationvalue.toString();
+                document.getElementById(replacevalues).innerHTML= local_metadata_from_array[i]['amazon_product']['title'];
+                
+                replacevalues = 'amount'+locationvalue.toString();
+                document.getElementById(replacevalues).innerHTML= local_metadata_from_array[i]['amazon_product']['price'].substring(1);
+                
+                replacevalues = 'description'+locationvalue.toString();
+                document.getElementById(replacevalues).innerHTML= local_metadata_from_array[i]['amazon_product']['description'];
+                
+                locationvalue=locationvalue+1;
                 
             }
         }    
-    }
-    else
-    {
-        fill_products();    
-    }
+
     
+}
+
+function fill_images()
+{
+    var locationvalue = 1;
+    var replacevalues = "";
+    var tablevalue = document.getElementById("suggestions-table");
+//    .hasOwnProperty('merchant_id')
+        for (i = 0; i < global_metadata_from_array.length; i++) { 
+            if(!global_metadata_from_array[i].hasOwnProperty('amazon_product'))
+            {
+                tablevalue.appendChild('div');
+                tablevalue.appendChild('img').src ;
+                replacevalues = 'picture'+locationvalue.toString();
+                if(global_metadata_from_array[i].hasOwnProperty('walmart_product'))
+                    document.getElementsByClassName(replacevalues).src= global_metadata_from_array[i]['amazon_product']['main_images'][0]['location'];
+                if(global_metadata_from_array[i].hasOwnProperty('newegg_product'))
+                    document.getElementsByClassName(replacevalues).src= global_metadata_from_array[i]['amazon_product']['main_images'][0]['location'];
+                
+            }
+        }    
 }
 
 function startingfunction(){
     get_metadata_from_array();
-//    fill_products();
+    fill_products();
+    fill_images();
 //    fill_products();
     //document.getElementById('picture1').src= global_metadata_from_array[0].;  
 }
