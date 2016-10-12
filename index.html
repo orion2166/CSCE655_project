@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
     <script src="scripts/login.js"></script>
     <script src="scripts/dragndrop.js"></script>
+	<script src="scripts/checkout.js"></script>
   </head>
   <body>
     <section class="page-header">
@@ -55,6 +56,7 @@
               </td>
           </tr>
       </table>
+      <input type="button" onClick="goToCheckout()" value="Buy" id="buy_button">
     </section>
     
     <section class="main-content">
@@ -63,6 +65,61 @@
         </header>
       	
         <body>
+        	<div id="checkout_popup" class="popup">
+            	<div id="popup-content">
+            		<span class="close" onClick="closeCheckout()">x</span>
+    				<table>
+                    	<tr>
+                        	<td>Name in card</td>
+                            <td><input type="text" name="card-name" value=""/></td>
+                        </tr>
+                        <tr>
+                        	<td>Card number</td>
+                            <td><input type="text" name="card-number" value=""/></td>
+                        </tr>
+                        <tr>
+                        	<td>Expiration date</td>
+                            <td>
+                            	<select>
+                                    <option>01</option>
+                                    <option>02</option>
+                                    <option>03</option>
+                                    <option>04</option>
+                                    <option>05</option>
+                                    <option>06</option>
+                                    <option>07</option>
+                                    <option>08</option>
+                                    <option>09</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                </select> /
+                                <select>
+                                    <option>2016</option>
+                                    <option>2017</option>
+                                    <option>2018</option>
+                                    <option>2019</option>
+                                    <option>2020</option>
+                                    <option>2021</option>
+                                    <option>2022</option>
+                                    <option>2023</option>
+                                    <option>2024</option>
+                                    <option>2025</option>
+                                    <option>2026</option>
+                                </select>
+                            </td> 
+                        </tr>
+                        <tr>
+                        	<td>Security number</td>
+                            <td><input type="text" name="card-name" value=""/></td>
+                        </tr>
+                        <tr>
+                        	<td>&nbsp;</td>
+                            <td><input type="button" value="Accept" onClick="checkout()"/></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         	<table id="search-results">
             	<tr id="1" draggable="true" ondragstart="drag(event)">
                 	<td>
