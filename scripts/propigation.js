@@ -1,4 +1,4 @@
-var SEMANTIC_SERVICE_URL = "https://ecology-service.cse.tamu.edu/BigSemanticsService/";
+var SEMANTIC_SERVICE_URL = "http://ecology-service.cse.tamu.edu/BigSemanticsService/";
 global_storage = "";
 global_products = 
     ["https://www.amazon.com/HP-14-an013nr-14-Inch-Notebook-Drive/dp/B01F4ZG68A/ref=sr_1_1?s=pc&ie=UTF8&qid=1476280219&sr=1-1&keywords=laptop",
