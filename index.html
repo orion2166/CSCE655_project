@@ -2,17 +2,18 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Csce655 project by orion2166</title>
+    <title>Csce655 project by orion2166 and roguelider</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <script src="scripts/login.js"></script>
   </head>
   <body>
     <section class="page-header">
     	<div class="center_table">
-            <table>
+            <table id="header-table">
                 <tr>
                     <td>
                         <form method="get" action="https://www.google.com/search">
@@ -20,14 +21,12 @@
                             <input type="submit" name="send" value="Search" class="form_button"/>        	
                         </form>
                     </td>
-                    <td class="white_cell">&nbsp;
-                        
+                    <td class="white_cell">&nbsp;</td>
+                    <td class="login_cell" id="login-data-cell"> 
+                        <input type="button" onClick="" value="Register" class="form_button">
+                        <input type="button" onClick="dropdownLogin()" value="Login" class="form_button">
                     </td>
-                    <td class="login_cell"> 
-                        <input type="button" action="" value="Register" class="form_button">
-                        <input type="button" action="" value="Login" class="form_button">
-                    </td>
-                    <td class="login_cell">
+                    <td class="login_cell" id="picture_cell">
                     	<img src="resources/user_pic.png" width="100rem" height="100rem">
                     </td>
                 </tr>
@@ -40,7 +39,7 @@
         	<h1>Cart</h1>
          </header>
 	  <table id="cart-table">
-       	  <tr>
+       	  <tr class="border-cell">
               <td><h3>Drag items here:</h3></td>
               <td>&nbsp;</td>
           </tr>
@@ -48,7 +47,7 @@
           	<td>&nbsp;</td>
             <td>&nbsp;</td>
           </tr>
-          <tr id="total-row"> 
+          <tr id="total-row" class="border-cell"> 
               <td class="product-cell"><strong>Total:</strong></td>      
               <td class="value-cell"><strong>$0.00</strong></td>
           </tr>
