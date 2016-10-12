@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
     <script src="scripts/login.js"></script>
+    <script src="scripts/dragndrop.js"></script>
   </head>
   <body>
     <section class="page-header">
@@ -38,7 +39,7 @@
     	<header>
         	<h1>Cart</h1>
          </header>
-	  <table id="cart-table">
+	  <table id="cart-table" ondrop="drop(event)" ondragover="allowDrop(event)">
        	  <tr class="border-cell">
               <td><h3>Drag items here:</h3></td>
               <td>&nbsp;</td>
@@ -49,7 +50,9 @@
           </tr>
           <tr id="total-row" class="border-cell"> 
               <td class="product-cell"><strong>Total:</strong></td>      
-              <td class="value-cell"><strong>$0.00</strong></td>
+              <td class="value-cell">
+              	<strong>$<span id="total_amount">0.00</span></strong>
+              </td>
           </tr>
       </table>
     </section>
@@ -57,10 +60,23 @@
     <section class="main-content">
     	<header>
         	<h1>Main Search</h1>
-            <table id="search-results">
-            </table>
         </header>
-      
+      	
+        <body>
+        	<table id="search-results">
+            	<tr id="1" draggable="true" ondragstart="drag(event)">
+                	<td>
+                    	<h4 id="title1">Alienware MX14</h4>
+                        <img src="resources/user_pic.png" width="100rem" height="100rem">
+                    </td>
+                    <td class="price-field">
+                    	<strong>$<span id="amount1">2000.00</span></strong>
+                        <h4>Description</h4>              	
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a venenatis nibh, in ullamcorper turpis. Pellentesque congue est sit amet nibh bibendum bibendum. Donec non porta tortor. Curabitur interdum libero at efficitur maximus. Nulla ex augue, suscipit ac turpis sit amet, posuere tincidunt velit. Proin porta turpis justo, eu semper ipsum varius non. Fusce tempor at eros sed ullamcorper. Aenean id diam consequat, efficitur tellus id, pulvinar risus. Nam mollis sem et placerat pellentesque. Nulla non ipsum tellus. Sed vestibulum ex nec venenatis aliquam.</p>  
+                    </td>
+                </tr>
+            </table>
+        </body>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/orion2166/CSCE655_project">Csce655 project</a> is maintained by <a href="https://github.com/orion2166">orion2166</a> and <a href="https://github.com/roguelider">roguelider</a>.</span>

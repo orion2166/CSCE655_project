@@ -215,6 +215,11 @@ h1{
 	width:65%;
 	float: left;
 }
+
+.main-content table{
+	text-align:center;
+}
+
 .mian-content :first-child {
   margin-top: 0; }
 .main-content img {
