@@ -86,25 +86,63 @@ function fill_products(){
     
 }
 
+
+
+
 function fill_images()
 {
     var locationvalue = 1;
     var replacevalues = "";
     var tablevalue = document.getElementById("suggestions-table");
 //    .hasOwnProperty('merchant_id')
-        for (i = 0; i < global_metadata_from_array.length; i++) { 
-            if(!global_metadata_from_array[i].hasOwnProperty('amazon_product'))
+    var local_metadata_from_array = [];
+    for(i = 0;i<7;i++)
+        local_metadata_from_array.push(JSON.parse(localStorage.getItem(i.toString()))); 
+
+
+        for (i = 0; i < local_metadata_from_array.length; i++) { 
+            if(!local_metadata_from_array[i].hasOwnProperty('amazon_product'))
             {
-                tablevalue.appendChild('div');
-                tablevalue.appendChild('img').src ;
-                replacevalues = 'picture'+locationvalue.toString();
-                if(global_metadata_from_array[i].hasOwnProperty('walmart_product'))
-                    document.getElementsByClassName(replacevalues).src= global_metadata_from_array[i]['amazon_product']['main_images'][0]['location'];
-                if(global_metadata_from_array[i].hasOwnProperty('newegg_product'))
-                    document.getElementsByClassName(replacevalues).src= global_metadata_from_array[i]['amazon_product']['main_images'][0]['location'];
+                var row = tablevalue.insertRow(0);
+                var cell = row.insertCell(0);
+                //cell.innerHTML="New cell";
+                var img = document.createElement('img');
+
+                if(local_metadata_from_array[i].hasOwnProperty('walmart_product'))
+                    img.src = local_metadata_from_array[i]['walmart_product']['main_images'][0]['location'];
+                if(local_metadata_from_array[i].hasOwnProperty('newegg_product'))
+                    img.src= local_metadata_from_array[i]['newegg_product']['favicon']['location'];
                 
+                var popup = document.createElement('div');
+                cell.appendChild(img);
+                //img.appendChild(popup);
+                img.style.width = '80%';
+	            img.style.height = '35%';
+                
+                popup.style.zIndex = 1;
+                popup.style.width = '100%';
+                popup.style.height = '100%';
+                popup.style.position = 'fixed';
+                popup.style.backgroundColor = 'rgba(255, 255, 255, 1)';
+                popup.style.margin = '15% auto'; /* 15% from the top and centered */
+                popup.style.padding = '20px';
+                popup.style.border = '1px solid #888';
+                popup.style.display = 'block';
+                var text1 = document.createElement('p');
+                text1.innerHTML = "hello please get help";
+                
+                popup.appendChild(text1);
+                
+//                popup.style.left = img.offsetLeft - '3rem';
+//                popup.style.top = img.offsetTop;
+
+                popup.style.left = 0;
+                popup.style.top = 0;
+
+                
+                //img.onmouseover=function();
             }
-        }    
+        }        
 }
 
 function startingfunction(){
