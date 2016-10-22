@@ -7,7 +7,10 @@ global_products =
      "https://www.walmart.com/ip/HP-Flyer-Red-15.6-15-f272wm-Laptop-PC-with-Intel-Pentium-N3540-Processor-4GB-Memory-500GB-Hard-Drive-and-Windows-10-Home/46429958",
      "https://www.walmart.com/ip/Refurbished-Apple-MacBook-Air-11-6-LED-Intel-i5-3317-1-7GHz-4GB-64GB-SSD-Notebook-MD223LL/165231312",
      "https://www.newegg.com/Product/Product.aspx?Item=1TS-001A-002P7",
-     "https://www.newegg.com/Product/Product.aspx?Item=N82E16834319906"]
+     "https://www.newegg.com/Product/Product.aspx?Item=N82E16834319906",
+     "https://www.newegg.com/Product/Product.aspx?Item=N82E16834319906",
+    "https://www.walmart.com/ip/Refurbished-HP-Violet-Purple-11-Stream-Laptop-PC-with-Intel-Celeron-N3050-Dual-Core-Processor-2GB-Memory-32GB-Hard-Drive-and-Windows-10-Home/49332608"];
+    //"https://www.walmart.com/ip/HP-Laptop-Core-i3-NT-15-ay039wm/51397788"];
 
 global_metadata_from_array = [];
 var metadata_index = 0;
@@ -62,7 +65,7 @@ function fill_products(){
     var locationvalue = 1;
     var replacevalues = " ";
     var local_metadata_from_array = [];
-    for(i = 0;i<7;i++)
+    for(i = 0;i<9;i++)
         local_metadata_from_array.push(JSON.parse(localStorage.getItem(i.toString()))); 
 //    .hasOwnProperty('merchant_id')
         for (i = 0; i < local_metadata_from_array.length; i++) { 
@@ -89,15 +92,19 @@ function fill_products(){
 
 
 
-
+var images = [];
+var datases = [];
 function fill_images()
 {
     var locationvalue = 1;
     var replacevalues = "";
+    var image_array_text = "helllo I am passing variables yeaaa";
     var tablevalue = document.getElementById("suggestions-table");
 //    .hasOwnProperty('merchant_id')
     var local_metadata_from_array = [];
-    for(i = 0;i<7;i++)
+    
+    
+    for(i = 0;i<9;i++)
         local_metadata_from_array.push(JSON.parse(localStorage.getItem(i.toString()))); 
 
 
@@ -108,24 +115,71 @@ function fill_images()
                 var cell = row.insertCell(0);
                 //cell.innerHTML="New cell";
                 var img = document.createElement('img');
-
-                if(local_metadata_from_array[i].hasOwnProperty('walmart_product'))
-                    img.src = local_metadata_from_array[i]['walmart_product']['main_images'][0]['location'];
-                if(local_metadata_from_array[i].hasOwnProperty('newegg_product'))
-                    img.src= local_metadata_from_array[i]['newegg_product']['favicon']['location'];
+                var tabl = document.createElement('li');
                 
-                cell.appendChild(img);
-                //img.appendChild(popup);
-                img.style.width = '80%';
-	            img.style.height = '35%';
-                img.addEventListener("mouseenter", onImgHover);
-				img.addEventListener("mouseout", imgLeave);
-
+                if(local_metadata_from_array[i].hasOwnProperty('walmart_product'))
+                {   
+                    img.src = local_metadata_from_array[i]['walmart_product']['main_images'][0]['location'];
+                    cell.appendChild(img);
+                    //img.appendChild(popup);
+                    img.style.width = '80%';
+                    img.style.height = '30%';
+                    images.push(img);
+                }
+                if(local_metadata_from_array[i].hasOwnProperty('newegg_product'))
+                    {
+                        var specificvalue = local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][3]['name'];
+                        specificvalue = specificvalue + ": " + local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][3]['value'];
+                        var text1 = document.createTextNode(specificvalue);
+                        var para = document.createElement("P");                       // Create a <p> element
+                        para.style.color = get_color();
+                        para.appendChild(text1);                                          
+                        tabl.appendChild(para);
+                        
+                        
+                        var specificvalue = local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][7]['name'];
+                        specificvalue = specificvalue + ": " + local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][7]['value'];
+                        var text1 = document.createTextNode(specificvalue);
+                        var para = document.createElement("P");                       // Create a <p> element
+                        para.style.color = get_color();
+                        para.appendChild(text1);                                          
+                        tabl.appendChild(para);
+                        
+                        
+                        var specificvalue = local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][5]['name'];
+                        specificvalue = specificvalue + ": " + local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][5]['value'];
+                        var text1 = document.createTextNode(specificvalue);
+                        var para = document.createElement("P");                       // Create a <p> element
+                        para.style.color = get_color();
+                        para.appendChild(text1);                                          
+                        tabl.appendChild(para);
+                        
+                        datases.push(tabl);
+                        
+                        
+                    }
+                    //img.src= local_metadata_from_array[i]['newegg_product']['favicon']['location'];
+                
+                
             }
-        }        
+        }
+        for(i = 0;i<images.length;i++)
+            {
+                images[i].addEventListener("mouseenter", function(){onImgHover(datases[i]);});
+                images[i].addEventListener("mouseout", imgLeave);
+            }
+            
 }
 
-function onImgHover(){
+function get_color()
+{
+    if(Math.floor((Math.random() * 2)) ==1)
+       return 'red';
+    else
+       return 'green';
+}
+
+function onImgHover(text_array){
 	var popup = document.createElement('div');
 	var pDiv = document.getElementById("compare_popup");
 		popup.style.zIndex = 1;
@@ -139,10 +193,9 @@ function onImgHover(){
 		popup.style.padding = '20px';
 		popup.style.border = '1px solid #888';
 		popup.style.display = 'block';
-		var text1 = document.createElement('p');
-		text1.innerHTML = "hello please get help";
-				   
-		popup.appendChild(text1);
+//		var text1 = document.createElement('p');
+//		text1.innerHTML = "hello good by"; //text_array;		   
+		popup.appendChild(text_array);
 					
 		pDiv.style.margin = "20% 50%";
 	 
