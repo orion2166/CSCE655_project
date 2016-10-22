@@ -98,7 +98,6 @@ function fill_images()
 {
     var locationvalue = 1;
     var replacevalues = "";
-    var image_array_text = "helllo I am passing variables yeaaa";
     var tablevalue = document.getElementById("suggestions-table");
 //    .hasOwnProperty('merchant_id')
     var local_metadata_from_array = [];
@@ -131,7 +130,7 @@ function fill_images()
                         var specificvalue = local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][3]['name'];
                         specificvalue = specificvalue + ": " + local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][3]['value'];
                         var text1 = document.createTextNode(specificvalue);
-                        var para = document.createElement("P");                       // Create a <p> element
+                        var para = document.createElement("p");                       // Create a <p> element
                         para.style.color = get_color();
                         para.appendChild(text1);                                          
                         tabl.appendChild(para);
@@ -140,7 +139,7 @@ function fill_images()
                         var specificvalue = local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][7]['name'];
                         specificvalue = specificvalue + ": " + local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][7]['value'];
                         var text1 = document.createTextNode(specificvalue);
-                        var para = document.createElement("P");                       // Create a <p> element
+                        var para = document.createElement("p");                       // Create a <p> element
                         para.style.color = get_color();
                         para.appendChild(text1);                                          
                         tabl.appendChild(para);
@@ -149,7 +148,7 @@ function fill_images()
                         var specificvalue = local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][5]['name'];
                         specificvalue = specificvalue + ": " + local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][5]['value'];
                         var text1 = document.createTextNode(specificvalue);
-                        var para = document.createElement("P");                       // Create a <p> element
+                        var para = document.createElement("p");                       // Create a <p> element
                         para.style.color = get_color();
                         para.appendChild(text1);                                          
                         tabl.appendChild(para);
@@ -170,6 +169,67 @@ function fill_images()
             }
             
 }
+
+function fill_hover(){
+    var locationvalue = 1;
+    var replacevalues = "";
+    var tablevalue = document.getElementById("suggestions-table");
+//    .hasOwnProperty('merchant_id')
+    var local_metadata_from_array = [];
+    
+    
+    for(i = 0;i<9;i++)
+        local_metadata_from_array.push(JSON.parse(localStorage.getItem(i.toString()))); 
+
+
+        for (i = 0; i < local_metadata_from_array.length; i++) { 
+            if(!local_metadata_from_array[i].hasOwnProperty('amazon_product'))
+            {
+                var row = tablevalue.insertRow(0);
+                var cell = row.insertCell(0);
+                //cell.innerHTML="New cell";
+                var img = document.createElement('img');
+                var tabl = document.createElement('li');
+                if(local_metadata_from_array[i].hasOwnProperty('newegg_product'))
+                    {
+                        var specificvalue = local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][3]['name'];
+                        specificvalue = specificvalue + ": " + local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][3]['value'];
+                        var text1 = document.createTextNode(specificvalue);
+                        var para = document.createElement("p");                       // Create a <p> element
+                        para.style.color = get_color();
+                        para.appendChild(text1);                                          
+                        tabl.appendChild(para);
+                        
+                        
+                        var specificvalue = local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][7]['name'];
+                        specificvalue = specificvalue + ": " + local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][7]['value'];
+                        var text1 = document.createTextNode(specificvalue);
+                        var para = document.createElement("p");                       // Create a <p> element
+                        para.style.color = get_color();
+                        para.appendChild(text1);                                          
+                        tabl.appendChild(para);
+                        
+                        
+                        var specificvalue = local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][5]['name'];
+                        specificvalue = specificvalue + ": " + local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][5]['value'];
+                        var text1 = document.createTextNode(specificvalue);
+                        var para = document.createElement("p");                       // Create a <p> element
+                        para.style.color = get_color();
+                        para.appendChild(text1);                                          
+                        tabl.appendChild(para);
+                        
+                        datases.push(tabl);
+                        
+                        
+                    }
+                    //img.src= local_metadata_from_array[i]['newegg_product']['favicon']['location'];
+                
+                
+            }
+        }
+    return datases[Math.floor((Math.random() * 3))]
+}
+
 
 function get_color()
 {
@@ -195,7 +255,7 @@ function onImgHover(text_array){
 		popup.style.display = 'block';
 //		var text1 = document.createElement('p');
 //		text1.innerHTML = "hello good by"; //text_array;		   
-		popup.appendChild(text_array);
+		popup.appendChild(fill_hover());
 					
 		pDiv.style.margin = "20% 50%";
 	 
