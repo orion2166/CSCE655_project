@@ -157,7 +157,7 @@ function fill_products(){
                         continue;
                     }
                 
-                if(starvalue < parseInt(localStorage.getItem("star")))
+                if(starvalue < parseInt(localStorage.getItem("star")) && localStorage.getItem("star") != null )
                     {
                         var link = document.getElementById(locationvalue.toString());
                             link.style.display = 'none';    
@@ -172,19 +172,19 @@ function fill_products(){
                         locationvalue=locationvalue+1;
                         continue;
                     }
-                if(!local_metadata_from_array[i]['amazon_product']['description'].includes(localStorage.getItem('brand'))) {
+                if((!local_metadata_from_array[i]['amazon_product']['description'].includes(localStorage.getItem('brand'))) && localStorage.getItem('brand') != null) {
                     var link = document.getElementById(locationvalue.toString());
                             link.style.display = 'none';    
                         locationvalue=locationvalue+1;
                         continue;
                 }
-                if(!local_metadata_from_array[i]['amazon_product']['description'].includes(localStorage.getItem('hard_drive'))) {
+                if(!local_metadata_from_array[i]['amazon_product']['description'].includes(localStorage.getItem('hard_drive'))&& localStorage.getItem('hard_drive') != null) {
                     var link = document.getElementById(locationvalue.toString());
                             link.style.display = 'none';    
                         locationvalue=locationvalue+1;
                         continue;
                 }
-                if(!local_metadata_from_array[i]['amazon_product']['description'].includes(localStorage.getItem('screen'))) {
+                if(!local_metadata_from_array[i]['amazon_product']['description'].includes(localStorage.getItem('screen'))&& localStorage.getItem('screen') != null) {
                     var link = document.getElementById(locationvalue.toString());
                             link.style.display = 'none';    
                         locationvalue=locationvalue+1;
