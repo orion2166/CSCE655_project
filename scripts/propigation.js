@@ -145,7 +145,7 @@ function fill_products(){
     
 //    .hasOwnProperty('merchant_id')
         for (i = 0; i < local_metadata_from_array.length; i++) { 
-            if(local_metadata_from_array[i].hasOwnProperty('amazon_product'))
+            if(local_metadata_from_array[i] != null && local_metadata_from_array[i].hasOwnProperty('amazon_product'))
             {
                 var pricevalue= parseInt(local_metadata_from_array[i]['amazon_product']['price'].substring(1));
                 var starvalue = parseInt(local_metadata_from_array[i]['amazon_product']['overall_rating'].substring(0,1));
