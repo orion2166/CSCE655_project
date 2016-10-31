@@ -276,3 +276,5 @@ function startingfunction(){
     fill_products();
     //document.getElementById('picture1').src= global_metadata_from_array[0].;  
 }
+
+
