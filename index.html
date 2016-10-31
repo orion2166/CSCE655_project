@@ -44,34 +44,37 @@
           <li class="dropdown">
                 <a href="#" class="dropbtn">RANKING</a>
                 <div class="dropdown-content" id="myDropdown">
-                <a href="#">1 STAR or greater</a>
-                <a href="#">2 STAR or greater</a>
-                <a href="#">3 STAR or greater</a>
-                <a href="#">4 STAR or greater</a>
-                <a href="#">5 STAR</a>
+                <a href="#" onclick="star_change(1)">1 STAR or greater</a>
+                <a href="#" onclick="star_change(2)">2 STAR or greater</a>
+                <a href="#" onclick="star_change(3)">3 STAR or greater</a>
+                <a href="#" onclick="star_change(4)">4 STAR or greater</a>
+                <a href="#" onclick="star_change(5)">5 STAR</a>
                 </div>
             </li>
           <li class="dropdown">
                 <a href="#" class="dropbtn">PRICE RANGE</a>
                 <div class="dropdown-content" id="myDropdown">
-                Lowest: <input type="text" name="lowest" value="50"><br>
-                Highest: <input type="text" name="highest" value="300"><br>
+                Lowest: <input type="text" id="lowest" name="lowest" value="50" onchange="low_price_change()"><br>
+                Highest: <input type="text" id="highest" name="highest" value="300" onchange="high_price_change()"><br>
                 </div>
             </li>
           <li class="dropdown">
                 <a href="#" class="dropbtn">SPECIFICATIONS</a>
                 <div class="dropdown-content" id="myDropdown">
-                Brand: <input type="text" name="lowest" value=""><br>
-                Hard Drive: <input type="text" name="highest" value="1T"><br>
-                DRAM: <input type="text" name="lowest" value="8G"><br>
-                Screen Size: <input type="text" name="highest" value="15-inch"><br>
+                Brand: <input type="text" id="brand" name="lowest" value=" " onchange="specification_change('brand')"><br>
+                Hard Drive: <input type="text" id="hard_drive" name="highest" value=" " onchange="specification_change('hard_drive')"><br>
+<!--                DRAM: <input type="text" id="dram" name="lowest" value=" " onchange="specification_change('dram')"><br>-->
+                Screen Size: <input type="text" id="screen" name="highest" value=" " onchange="specification_change('screen')"><br>
                 </div>
             </li>
             <li class="dropdown">
                 <a href="#" class="dropbtn">ORDER BY</a>
                 <div class="dropdown-content" id="myDropdown">
-                <a href="#">Lowest to Highest</a>
-                <a href="#">Highest to Lowest</a>
+                <a href="#" onclick="order_by_change('lthp')">Lowest to Highest Price</a>
+                <a href="#" onclick="order_by_change('htlp')">Highest to Lowest Price</a>
+                <a href="#" onclick="order_by_change('lthr')">Lowest to Highest Rating</a>
+                <a href="#" onclick="order_by_change('htlr')">Highest to Lowest Rating</a>
+                
                 </div>
             </li>
       </ul>
@@ -175,6 +178,14 @@
                         <h4>Description</h4>              	
                         <p id="description1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a venenatis nibh, in ullamcorper turpis. Pellentesque congue est sit amet nibh bibendum bibendum. Donec non porta tortor. Curabitur interdum libero at efficitur maximus. Nulla ex augue, suscipit ac turpis sit amet, posuere tincidunt velit. Proin porta turpis justo, eu semper ipsum varius non. Fusce tempor at eros sed ullamcorper. Aenean id diam consequat, efficitur tellus id, pulvinar risus. Nam mollis sem et placerat pellentesque. Nulla non ipsum tellus. Sed vestibulum ex nec venenatis aliquam.</p>  
                     </td>
+                    <td class="price-field">
+                    	<strong>Rating: <span id="rating1">3</span></strong>
+                        <h4>REVIEW</h4>
+                        <h5>BEST</h5>
+                        <p id="best1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a venenatis nibh, in ullamcorper turpis. Pellentesque congue est sit amet nibh bibendum bibendum. Donec non porta tortor. Curabitur interdum libero at efficitur maximus. Nulla ex augue, suscipit ac turpis sit amet, posuere tincidunt velit. Proin porta turpis justo, eu semper ipsum varius non. Fusce tempor at eros sed ullamcorper. Aenean id diam consequat, efficitur tellus id, pulvinar risus. Nam mollis sem et placerat pellentesque. Nulla non ipsum tellus. Sed vestibulum ex nec venenatis aliquam.</p>
+                        <h5>WORST</h5>
+                        <p id="worst1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a venenatis nibh, in ullamcorper turpis. Pellentesque congue est sit amet nibh bibendum bibendum. Donec non porta tortor. Curabitur interdum libero at efficitur maximus. Nulla ex augue, suscipit ac turpis sit amet, posuere tincidunt velit. Proin porta turpis justo, eu semper ipsum varius non. Fusce tempor at eros sed ullamcorper. Aenean id diam consequat, efficitur tellus id, pulvinar risus. Nam mollis sem et placerat pellentesque. Nulla non ipsum tellus. Sed vestibulum ex nec venenatis aliquam.</p>
+                    </td>
                 </tr>
                 <tr id="2" draggable="true" ondragstart="drag(event)">
                 	<td>
@@ -187,6 +198,14 @@
                         <h4>Description</h4>              	
                         <p id="description2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a venenatis nibh, in ullamcorper turpis. Pellentesque congue est sit amet nibh bibendum bibendum. Donec non porta tortor. Curabitur interdum libero at efficitur maximus. Nulla ex augue, suscipit ac turpis sit amet, posuere tincidunt velit. Proin porta turpis justo, eu semper ipsum varius non. Fusce tempor at eros sed ullamcorper. Aenean id diam consequat, efficitur tellus id, pulvinar risus. Nam mollis sem et placerat pellentesque. Nulla non ipsum tellus. Sed vestibulum ex nec venenatis aliquam.</p>  
                     </td>
+                    <td class="price-field">
+                    	<strong>Rating: <span id="rating2">3</span></strong>
+                        <h4>REVIEW</h4>
+                        <h5>BEST</h5>
+                        <p id="best2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a venenatis nibh, in ullamcorper turpis. Pellentesque congue est sit amet nibh bibendum bibendum. Donec non porta tortor. Curabitur interdum libero at efficitur maximus. Nulla ex augue, suscipit ac turpis sit amet, posuere tincidunt velit. Proin porta turpis justo, eu semper ipsum varius non. Fusce tempor at eros sed ullamcorper. Aenean id diam consequat, efficitur tellus id, pulvinar risus. Nam mollis sem et placerat pellentesque. Nulla non ipsum tellus. Sed vestibulum ex nec venenatis aliquam.</p>
+                        <h5>WORST</h5>
+                        <p id="worst2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a venenatis nibh, in ullamcorper turpis. Pellentesque congue est sit amet nibh bibendum bibendum. Donec non porta tortor. Curabitur interdum libero at efficitur maximus. Nulla ex augue, suscipit ac turpis sit amet, posuere tincidunt velit. Proin porta turpis justo, eu semper ipsum varius non. Fusce tempor at eros sed ullamcorper. Aenean id diam consequat, efficitur tellus id, pulvinar risus. Nam mollis sem et placerat pellentesque. Nulla non ipsum tellus. Sed vestibulum ex nec venenatis aliquam.</p>
+                    </td>
                 </tr>
                 <tr id="3" draggable="true" ondragstart="drag(event)">
                 	<td>
@@ -198,6 +217,14 @@
                     	<strong>$<span id="amount3">2000.00</span></strong>
                         <h4>Description</h4>              	
                         <p id="description3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a venenatis nibh, in ullamcorper turpis. Pellentesque congue est sit amet nibh bibendum bibendum. Donec non porta tortor. Curabitur interdum libero at efficitur maximus. Nulla ex augue, suscipit ac turpis sit amet, posuere tincidunt velit. Proin porta turpis justo, eu semper ipsum varius non. Fusce tempor at eros sed ullamcorper. Aenean id diam consequat, efficitur tellus id, pulvinar risus. Nam mollis sem et placerat pellentesque. Nulla non ipsum tellus. Sed vestibulum ex nec venenatis aliquam.</p>  
+                    </td>
+                    <td class="price-field">
+                    	<strong>Rating: <span id="rating3">3</span></strong>
+                        <h4>REVIEW</h4>
+                        <h5>BEST</h5>
+                        <p id="best3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a venenatis nibh, in ullamcorper turpis. Pellentesque congue est sit amet nibh bibendum bibendum. Donec non porta tortor. Curabitur interdum libero at efficitur maximus. Nulla ex augue, suscipit ac turpis sit amet, posuere tincidunt velit. Proin porta turpis justo, eu semper ipsum varius non. Fusce tempor at eros sed ullamcorper. Aenean id diam consequat, efficitur tellus id, pulvinar risus. Nam mollis sem et placerat pellentesque. Nulla non ipsum tellus. Sed vestibulum ex nec venenatis aliquam.</p>
+                        <h5>WORST</h5>
+                        <p id="worst3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a venenatis nibh, in ullamcorper turpis. Pellentesque congue est sit amet nibh bibendum bibendum. Donec non porta tortor. Curabitur interdum libero at efficitur maximus. Nulla ex augue, suscipit ac turpis sit amet, posuere tincidunt velit. Proin porta turpis justo, eu semper ipsum varius non. Fusce tempor at eros sed ullamcorper. Aenean id diam consequat, efficitur tellus id, pulvinar risus. Nam mollis sem et placerat pellentesque. Nulla non ipsum tellus. Sed vestibulum ex nec venenatis aliquam.</p>
                     </td>
                 </tr>
             </table>
