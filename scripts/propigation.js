@@ -267,7 +267,7 @@ function fill_images()
 
 
         for (i = 0; i < local_metadata_from_array.length; i++) { 
-            if(!local_metadata_from_array[i].hasOwnProperty('amazon_product'))
+            if(local_metadata_from_array[i] != null && !local_metadata_from_array[i].hasOwnProperty('amazon_product'))
             {
                 var row = tablevalue.insertRow(0);
                 var cell = row.insertCell(0);
@@ -275,7 +275,7 @@ function fill_images()
                 var img = document.createElement('img');
                 var tabl = document.createElement('li');
                 
-                if(local_metadata_from_array[i].hasOwnProperty('walmart_product'))
+                if(local_metadata_from_array[i] != null && local_metadata_from_array[i].hasOwnProperty('walmart_product'))
                 {   
                     img.src = local_metadata_from_array[i]['walmart_product']['main_images'][0]['location'];
                     cell.appendChild(img);
@@ -284,7 +284,7 @@ function fill_images()
                     img.style.height = '30%';
                     images.push(img);
                 }
-                if(local_metadata_from_array[i].hasOwnProperty('newegg_product'))
+                if(local_metadata_from_array[i] != null && local_metadata_from_array[i].hasOwnProperty('newegg_product'))
                     {
                         var specificvalue = local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][3]['name'];
                         specificvalue = specificvalue + ": " + local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][3]['value'];
@@ -342,14 +342,14 @@ function fill_hover(){
 
 
         for (i = 0; i < local_metadata_from_array.length; i++) { 
-            if(!local_metadata_from_array[i].hasOwnProperty('amazon_product'))
+            if(local_metadata_from_array[i] != null && !local_metadata_from_array[i].hasOwnProperty('amazon_product'))
             {
                 var row = tablevalue.insertRow(0);
                 var cell = row.insertCell(0);
                 //cell.innerHTML="New cell";
                 var img = document.createElement('img');
                 var tabl = document.createElement('li');
-                if(local_metadata_from_array[i].hasOwnProperty('newegg_product'))
+                if(local_metadata_from_array[i] != null && local_metadata_from_array[i].hasOwnProperty('newegg_product'))
                     {
                         var specificvalue = local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][3]['name'];
                         specificvalue = specificvalue + ": " + local_metadata_from_array[i]['newegg_product']['specifications_table'][1]['specifications'][3]['value'];
